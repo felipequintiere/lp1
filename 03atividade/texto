@@ -1,0 +1,73 @@
+/////////////////////////////////////////////////////////////////////////////////
+1.
+O que são tipos de dados?
+Tipos de dados definem o conjunto de valores que uma variável pode armazenar
+
+Os principais tipos de dados em C:
+	int - armazena de números inteiros
+	float - armazena números com casas decimais
+	double - como o float, porém com maior precisão
+	char - armazena um único caractere
+	_Bool - armazena valores lógicos, 0(falso) ou 1(verdadeiro)
+
+obs.:
+O intervalo de valores que cada tipo pode armazenar depende da representação binária e da quantidade de memória alocada. Nesse sentido, por exemplo, um int unsigned de 4 bytes (32 bits) pode representar valores no intervalo [0; 2^(32)] ao passo que um int signed pode representar valores no intervalo [2^(31), 2^(31)-1]. Tal fenômeno ocorre de forma similar em outros tipos, como o float e o double.
+
+
+Para que servem os tipos?
+
+
+/////////////////////////////////////////////////////////////////////////////////
+2.
+
+- O que você espera que aconteça ao compilar o programa? Por quê?
+O programa não será compilado com sucesso. Haja vista a linha que contém a função printf(...), uma vez que tenta realizar uma operação de subtração entre um valor do tipo int e um ponteiro do tipo char *, que resulta em um erro em razão da incompatibilidade da operação entre esses dois tipos.
+
+- Quais são os tipos dos operandos na operação de subtração?
+100 é um inteiro (int)
+"10" é um string (char *)
+
+- Transcreva a mensagem de erro de compilação e a explique.
+
+2.c: In function ‘main’:
+2.c:3:30: error: invalid operands to binary - (have ‘int’ and ‘char *’)
+    3 |     printf("Soma = %d\n", 100-"10");
+      |                              ^
+      |                              |
+      |                              char *
+
+O gcc diz que os operandos utilizados na operação são inválidos. Como o primeiro é do tipo int, e o segundo é um char *, e como o C não permite a subtração entre esses dois tipos, o compilador exibe um erro de tipagem.
+
+
+/////////////////////////////////////////////////////////////////////////////////
+4.
+
+- Qual é a diferença entre tipagem estática e dinâmica?
+Em uma linguagem de tipagem estática, a verificação dos tipos ocorre em tempo de compilação, ao passo que, em uma linguagem de tipagem dinâmica, a verificação de tipos ocorre em tempo de execução.
+
+- Dê exemplos de linguagens que usem tipagem estática e exemplos de linguagens que usem tipagem dinâmica.
+tipagem estática: C, C++, Java
+tipagem dinâmica: Python, Lua, Ruby
+
+- Por quê uma linguagem com tipagem estática é tipicamente mais rápida do que uma com tipagem dinâmica? Justifique usando um exemplo.
+Porque em uma lingaugem de tipagem estática, os tipos das variáveis são declarados logo no código, dessa forma, o compilador conhece o tipo exato de cada variável e pode gerar código de máquina mais otimizado, sem precisar fazer verificações de tipo em tempo de execução. Por outro lado, as linguagens dinâmicas precisam verificar os tipos durante a execução, o que adiciona uma sobrecarga de desempenho.
+
+
+exemplo comparativo:
+
+- C
+
+int a = 5;
+int b = 10;
+int c = a + b;
+
+o código é compilado com instruções específicas para inteiros
+
+
+- Python
+
+a = 5
+b = 10
+c = a + b
+
+o interpretador CPython precisa, em tempo de execução, checar dinamicamente se a e b são compatíveis com a operação exigida
