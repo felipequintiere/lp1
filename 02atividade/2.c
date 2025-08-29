@@ -21,5 +21,7 @@ int main(void)
 	printf("\nO maior valor é: %f\n",(n1 > n2 ? n1 : n2));
 	exit(0);
 	*/
+
+	exit(0);
 }
 
