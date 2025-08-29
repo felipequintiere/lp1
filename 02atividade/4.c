@@ -12,7 +12,6 @@ int main(void)
 		printf("Determine a velocidade em mph: ");
 		scanf("%f",&vel);
 
-		// cascated if statements (p.80 - c programming a modern approach)
 		if ((vel * TAXA_DE_CONVERSÃO) < 80.0f) 
 			printf("Acelere\n");
 		else
