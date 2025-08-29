@@ -27,7 +27,7 @@ int main(void)
 		soma += temp_lida;
 	}
 
-	for (int i = 0; i < iteracoes; i++) {
+	for (char i = 0; i < iteracoes; i++) {
 		if (temps[i] > soma/iteracoes) 
 			acima_da_media += 1;
 	}
