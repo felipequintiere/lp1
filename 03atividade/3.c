@@ -15,16 +15,19 @@ int main(void)
 {
 	char iteracoes = 4;
 	char temps[iteracoes], temp_lida, acima_da_media = 0;
-	float soma;
+	float soma = 0.0f; /* para evitar que soma/iteracoes resulte em um int truncado */
 
 	printf("Insira as temperaturas (entre -100 e 100): ");
 	for (char i = 0; i < iteracoes; i++) {
-		scanf("%hhd",&temp_lida);
+		do {
+		    scanf("%hhd", &temp_lida);
+		} while (temp_lida < -100 || temp_lida > 100);
+
 		temps[i] = temp_lida;
-		soma += temps[i];
+		soma += temp_lida;
 	}
 
-	for (int i = 0; i <= iteracoes; i++) {
+	for (int i = 0; i < iteracoes; i++) {
 		if (temps[i] > soma/iteracoes) 
 			acima_da_media += 1;
 	}
