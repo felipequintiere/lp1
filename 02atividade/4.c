@@ -5,27 +5,22 @@
 
 int main(void)
 {
-	float vel = 1.0f;
+	float vel = 1;
 
-	while (vel != 0)
+	while (vel)
 	{
 		printf("Determine a velocidade em mph: ");
 		scanf("%f",&vel);
 
+		// cascated if statements (p.80 - c programming a modern approach)
 		if ((vel * TAXA_DE_CONVERSÃO) < 80.0f) 
-		{
 			printf("Acelere\n");
-		}
-		else if ((vel * TAXA_DE_CONVERSÃO) > 100.0f) 
-		{
-			printf("Desacelere\n");
-		}
 		else
-		{
-			printf("Mantenha\n");
-		}
+			if ((vel * TAXA_DE_CONVERSÃO) > 100.0f) 
+				printf("Desacelere\n");
+			else 
+				printf("Mantenha\n");
 	}
-
 	return 0;
 }
 

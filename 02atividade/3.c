@@ -6,20 +6,13 @@
 
 int main(void)
 {
-	float preco_dolar, preco_real;
+	float preco_dolar;
 
 	printf("Escreva o preço do celular em dólares ($): ");
 	scanf("%f", &preco_dolar);
-	preco_real = CAMBIO * preco_dolar;
 
-	if (preco_real <= GASTO_LIMITE)
-	{
-		printf("BOM NEGÓCIO\n");
-	}
-	else
-	{
-		printf("MAU NEGÓCIO\n");
-	}
+	if (CAMBIO * preco_dolar <= GASTO_LIMITE) printf("BOM NEGÓCIO\n");
+	else printf("MAU NEGÓCIO\n");
 	
 	return 0;
 }

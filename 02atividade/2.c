@@ -6,22 +6,20 @@
 int main(void)
 {
 	float n1, n2;
-	printf("Escolha o primeiro valor numérico: ");
-	scanf("%f", &n1);
-	printf("Escolha o segundo valor numérico: ");
-	scanf("%f", &n2);
 
-	if (n1 > n2)
-	{
-		printf("%f\n",n1);
-	}
-	else if (n2 > n1)
-	{
-		printf("%f\n",n2);
-	}
+	printf("Escolha dois valores numéricos [n1 n2]: ");
+	scanf("%f%f", &n1, &n2);
+
+	// cascated if statements (p.80 - c programming a modern approach)
+	if (n1 > n2) printf("\nO maior valor é n1: %f\n",n1);
 	else
-	{
-		printf("valores iguais: %f e %f\n",n1,n2);
-	}
+		if (n2 > n1) printf("\nO maior valor é n2: %f\n",n2);
+		else printf("\nValores iguais: %f e %f\n",n1,n2);
+
+	// conditional expressions (p.83-84 - c programming a modern approach)
+	/*
+	printf("\nO maior valor é: %f\n",(n1 > n2 ? n1 : n2));
 	exit(0);
+	*/
 }
+

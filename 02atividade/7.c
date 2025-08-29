@@ -13,7 +13,7 @@ int main(void)
 	max = min = aux = 0;
 	int times[linhas][colunas];
 
-	printf("\nInsira (na mesma linha) [ID vitórias empates]\n");
+	printf("\nInsira (na mesma linha) [id vitórias empates]\n");
 	for (int i = 0; i < linhas; i++)
 	{
 		printf("time %d: ",i+1);
@@ -21,7 +21,7 @@ int main(void)
 		times[i][1] = 3*vitoria + empate;
 	}
 
-	printf("\n        id\t\t pontuação\n");
+	printf("\n%10s\t\t%10s\n","id","pontuação");
 	for (int i = 0; i < linhas; i++)
 	{
 		printf("%10.1d\t\t%10.1d\n",times[i][0],times[i][1]);
@@ -39,10 +39,8 @@ int main(void)
 	printf("\nID(s) do(s) time(s) de maior pontuação: \n");
 	for (int i = 0; i < linhas; i++)
 	{
-		if (times[i][1] == times[max][1])
-		{
-			printf("%10.0d ",times[i][0]);
-		}
+		if (times[i][1] == times[max][1]) 
+			printf("%10.1d\n",times[i][0]);
 	}
 
 	// pontuação mínima
@@ -54,15 +52,12 @@ int main(void)
 			min = i;
 		}
 	}
-	printf("\n\nID(s) do(s) time(s) de menor pontuação: \n");
+	printf("\nID(s) do(s) time(s) de menor pontuação: \n");
 	for (int i = 0; i < linhas; i++)
 	{
-		if (times[i][1] == times[min][1])
-		{
-			printf("%10.0d ",times[i][0]);
-		}
+		if (times[i][1] == times[min][1]) 
+			printf("%10.1d\n",times[i][0]);
 	}
 
-	printf("\n");
 	return 0;
 }
