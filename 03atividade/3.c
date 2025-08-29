@@ -13,11 +13,11 @@
 
 int main(void)
 {
-	int soma = 0, iteracoes = 4, acima_da_media = 0;
-	char temps[iteracoes], temp_lida;
-	float media;
+	char iteracoes = 4;
+	char temps[iteracoes], temp_lida, acima_da_media = 0;
+	float soma;
 
-	printf("Insira as temperaturas: ");
+	printf("Insira as temperaturas (entre -100 e 100): ");
 	for (char i = 0; i < iteracoes; i++) {
 		scanf("%hhd",&temp_lida);
 		temps[i] = temp_lida;
@@ -29,8 +29,8 @@ int main(void)
 			acima_da_media += 1;
 	}
 
-	printf("Quantidade de leituras acima da média: %d\n",
-	acima_da_media);
+	printf("Quantidade de leituras acima da média: %d\nMédia: %.2f\n",
+	acima_da_media,soma/iteracoes);
 
 	return 0;
 }
