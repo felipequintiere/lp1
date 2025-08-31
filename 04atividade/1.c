@@ -20,7 +20,7 @@ bool eh_primo (int n)
 	for (int i = 2; i < n; i++) 
 		if (n%i == 0) {primo = 0; break;}
 
-	return (primo != 0 ? 1 : 0); 
+	return (n != 1 && primo != 0 ? 1 : 0); 
 }
 
 int main(void)
@@ -29,7 +29,7 @@ int main(void)
 	printf("Insira um valor [n]: ");
 	scanf("%d",&n);
 
-	eh_primo(n) && n != 1 ? printf("%d é primo\n",n) : printf("%d não é primo\n",n);
+	eh_primo(n) ? printf("%d é primo\n",n) : printf("%d não é primo\n",n);
 
 	return eh_primo(n);
 }

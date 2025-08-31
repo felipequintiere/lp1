@@ -13,12 +13,12 @@ bool eh_primo (int n)
 	for (int i = 2; i < n; i++) 
 		if (n%i == 0) {primo = 0; break;}
 
-	return (primo != 0 ? 1 : 0); 
+	return (n != 1 && primo != 0 ? 1 : 0); 
 }
 
 int todos_os_primos (int n)
 {
-	for (int i = 2; i < n; i++)
+	for (int i = 2; i <= n; i++)
 		eh_primo(i) ? printf("%d é primo\n",i) : i+0 ;	
 
 	return 0;
