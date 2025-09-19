@@ -21,7 +21,7 @@ bool eh_primo (int n)
 	return ((n > 1) && primo == 1 ? 1 : 0); 
 }
 
-int todos_os_primos (int n)
+void todos_os_primos (int n)
 {
 	for (int i = 2; i <= n; i++)
 		eh_primo(i) ? printf("%d é primo\n",i) : i+0 ;	
