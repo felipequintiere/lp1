@@ -11,11 +11,7 @@ Os principais tipos de dados em C:
 	_Bool - armazena valores lógicos, 0(falso) ou 1(verdadeiro)
 
 obs.:
-O intervalo de valores que cada tipo pode armazenar depende da representação binária e da quantidade de memória alocada. Nesse sentido, por exemplo, um int unsigned de 4 bytes (32 bits) pode representar valores no intervalo [0; 2^(32)] ao passo que um int signed pode representar valores no intervalo [2^(31), 2^(31)-1]. Tal fenômeno ocorre de forma similar em outros tipos, como o float e o double.
-
-
-Para que servem os tipos?
-
+O intervalo de valores que cada tipo pode armazenar depende da representação binária e da quantidade de memória alocada. Nesse sentido, por exemplo, um int unsigned de 4 bytes (32 bits) pode representar valores no intervalo [0; 2^(32)] ao passo que um int signed pode representar valores no intervalo [-2^(31), 2^(31)-1]. Tal fenômeno ocorre de forma similar em outros tipos, como o float e o double.
 
 /////////////////////////////////////////////////////////////////////////////////
 2.
@@ -36,7 +32,7 @@ O programa não será compilado com sucesso. Haja vista a linha que contém a fu
       |                              |
       |                              char *
 
-O gcc diz que os operandos utilizados na operação são inválidos. Como o primeiro é do tipo int, e o segundo é um char *, e como o C não permite a subtração entre esses dois tipos, o compilador exibe um erro de tipagem.
+O gcc diz que os operandos utilizados na operação são inválidos. Como o primeiro é do tipo int, e o segundo é um char*, e como o C não permite a subtração entre esses dois tipos, o compilador exibe um erro de tipagem.
 
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -50,7 +46,7 @@ tipagem estática: C, C++, Java
 tipagem dinâmica: Python, Lua, Ruby
 
 - Por quê uma linguagem com tipagem estática é tipicamente mais rápida do que uma com tipagem dinâmica? Justifique usando um exemplo.
-Porque em uma lingaugem de tipagem estática, os tipos das variáveis são declarados logo no código, dessa forma, o compilador conhece o tipo exato de cada variável e pode gerar código de máquina mais otimizado, sem precisar fazer verificações de tipo em tempo de execução. Por outro lado, as linguagens dinâmicas precisam verificar os tipos durante a execução, o que adiciona uma sobrecarga de desempenho.
+Porque em uma linguagem de tipagem estática, os tipos das variáveis são declarados logo no código, dessa forma, o compilador conhece o tipo exato de cada variável e pode gerar código de máquina mais otimizado, sem precisar fazer verificações de tipo em tempo de execução. Por outro lado, as linguagens dinâmicas precisam verificar os tipos durante a execução, o que adiciona uma sobrecarga de desempenho.
 
 
 exemplo comparativo:
