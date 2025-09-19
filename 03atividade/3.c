@@ -13,12 +13,15 @@
 
 int main(void)
 {
-	char iteracoes = 4;
-	char temps[iteracoes], temp_lida, acima_da_media = 0;
-	float soma = 0.0f; /* para evitar que soma/iteracoes resulte em um int truncado */
+	unsigned char iteracoes = 4;
+	signed char temps[iteracoes], temp_lida, acima_da_media = 0;
+	float soma = 0.0f; // para evitar que soma/iteracoes resulte em um int truncado
 
 	printf("Insira as temperaturas (entre -100 e 100): ");
-	for (char i = 0; i < iteracoes; i++) {
+	for (unsigned char i = 0; i < iteracoes; i++)
+	{
+		// optei por usar %hhd ao invés de %c uma vez que o primeiro ignora 
+		// white-spaces por padrão
 		do {
 		    scanf("%hhd", &temp_lida);
 		} while (temp_lida < -100 || temp_lida > 100);
@@ -27,7 +30,8 @@ int main(void)
 		soma += temp_lida;
 	}
 
-	for (char i = 0; i < iteracoes; i++) {
+	for (unsigned char i = 0; i < iteracoes; i++)
+	{
 		if (temps[i] > soma/iteracoes) 
 			acima_da_media += 1;
 	}
