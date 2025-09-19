@@ -6,22 +6,25 @@ Use a função eh_primo do exercício anterior sem alterá-la.
 #include <stdio.h>
 #include <stdbool.h>
 
+
 bool eh_primo (int n)
 {
 	bool primo = true;
 
 	for (int i = 2; i < n; i++) 
-		if (n%i == 0) {primo = 0; break;}
+		if (n%i == 0)
+		{
+			primo = 0;
+			break;
+		}
 
-	return (n != 1 && primo != 0 ? 1 : 0); 
+	return ((n > 1) && primo == 1 ? 1 : 0); 
 }
 
 int todos_os_primos (int n)
 {
 	for (int i = 2; i <= n; i++)
 		eh_primo(i) ? printf("%d é primo\n",i) : i+0 ;	
-
-	return 0;
 }
 
 int main(void)

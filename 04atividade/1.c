@@ -18,9 +18,13 @@ bool eh_primo (int n)
 	bool primo = true;
 
 	for (int i = 2; i < n; i++) 
-		if (n%i == 0) {primo = 0; break;}
+		if (n%i == 0)
+		{
+			primo = 0;
+			break;
+		}
 
-	return (n != 1 && primo != 0 ? 1 : 0); 
+	return ((n > 1) && primo == 1 ? 1 : 0); 
 }
 
 int main(void)
