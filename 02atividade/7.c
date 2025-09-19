@@ -6,16 +6,16 @@
 
 // Ao final, o programa deve escrever os nomes (ou identificadores) dos times com mais e menos pontos até o momento.
 #include <stdio.h>
+#define LINHAS 4
 
 int main(void)
 {
-	int linhas = 4;
-	int times[linhas][2];
+	int times[LINHAS][2];
 	int vitoria, empate;
 	int max_index = 0, min_index = 0;
 
 	printf("\nInsira (na mesma linha) [id vitórias empates]\n");
-	for (int i = 0; i < linhas; i++)
+	for (int i = 0; i < LINHAS; i++)
 	{
 		printf("time %d: ",i+1);
 		scanf("%d%d%d",&times[i][0], &vitoria, &empate);
@@ -24,7 +24,7 @@ int main(void)
 
 
 	printf("\n%10s\t\t%10s\n","id","pontuação");
-	for (int i = 0; i < linhas; i++)
+	for (int i = 0; i < LINHAS; i++)
 	{
 		printf("%10.1d\t\t%10.1d\n",times[i][0],times[i][1]);
 
@@ -35,14 +35,14 @@ int main(void)
 	}
 
 	printf("\nID(s) do(s) time(s) de maior pontuação: \n");
-	for (int i = 0; i < linhas; i++)
+	for (int i = 0; i < LINHAS; i++)
 	{
 		if (times[i][1] == times[max_index][1]) 
 			printf("%10.1d\n",times[i][0]);
 	}
 
 	printf("\nID(s) do(s) time(s) de menor pontuação: \n");
-	for (int i = 0; i < linhas; i++)
+	for (int i = 0; i < LINHAS; i++)
 	{
 		if (times[i][1] == times[min_index][1]) 
 			printf("%10.1d\n",times[i][0]);
