@@ -30,7 +30,7 @@ int main() {
 	else
 		compra(&conta2, 500);
 
-	printf("Saldo final da primeira conta: R$%d\n", conta1);
+	printf("Saldo final da primeira conta: R$%d\n",conta1);
 	printf("Saldo final da segunda conta: R$%d\n", conta2);
 
     return 0;
