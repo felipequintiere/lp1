@@ -13,6 +13,23 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+bool eh_primo (int n);
+
+int main(void)
+{
+	int n;
+
+	printf("Insira um valor [n]: ");
+	scanf("%d",&n);
+
+	if (eh_primo(n)) 
+		printf("%d é primo\n",n);
+	else
+		printf("%d não é primo\n",n);
+
+	return eh_primo(n);
+}
+
 bool eh_primo (int n)
 {
 	bool primo = true;
@@ -24,16 +41,5 @@ bool eh_primo (int n)
 			break;
 		}
 
-	return ((n > 1) && primo == 1 ? 1 : 0); 
-}
-
-int main(void)
-{
-	int n;
-	printf("Insira um valor [n]: ");
-	scanf("%d",&n);
-
-	eh_primo(n) ? printf("%d é primo\n",n) : printf("%d não é primo\n",n);
-
-	return eh_primo(n);
+	return (n > 1) && (primo == 1) ? 1 : 0; 
 }
