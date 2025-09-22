@@ -17,10 +17,7 @@ os saldos das duas contas.
 */
 #include <stdio.h>
 
-void compra(int* conta, int valor)
-{
-	*conta -= valor;
-}
+void compra(int* conta, int valor);
 
 int main() {
 	int conta1, conta2;
@@ -39,3 +36,7 @@ int main() {
     return 0;
 }
 
+void compra(int* conta, int valor)
+{
+	*conta -= valor;
+}

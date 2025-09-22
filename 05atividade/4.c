@@ -7,13 +7,7 @@ printf("%d %d\n", x, y);    // 20 10
 */
 #include <stdio.h>
 
-void troca(int* x, int*y)
-{
-	int aux;
-	aux = *x;
-	*x = *y;
-	*y = aux;
-}
+void troca(int* x, int*y);
 
 int main(void)
 {
@@ -26,4 +20,12 @@ int main(void)
 	printf("%d %d\n", x, y);
 
 	return 0;
+}
+
+void troca(int* x, int*y)
+{
+	int aux;
+	aux = *x;
+	*x = *y;
+	*y = aux;
 }

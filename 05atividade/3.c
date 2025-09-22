@@ -7,10 +7,7 @@ Faça um programa que leia o saldo das duas contas e efetue as compras corretame
 */
 #include <stdio.h>
 
-void compra(int* conta, int* valor)
-{
-	*conta -= *valor;
-}
+void compra(int* conta, int* valor);
 
 int main()
 {
@@ -42,4 +39,9 @@ int main()
 	printf("Saldo final da segunda conta: R$%d\n", conta2);
 
 	return 0;
+}
+
+void compra(int* conta, int* valor)
+{
+	*conta -= *valor;
 }
