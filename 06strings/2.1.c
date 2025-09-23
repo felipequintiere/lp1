@@ -1,19 +1,13 @@
 /*
-    Implemente a função concatena:
-        Recebe uma string de destino
-        Recebe duas strings de origem
-        Junta em destino as duas strings de origem (sobrescrevendo o conteúdo de destino, se houver)
-
-void concatena (char* d, char* o1, char* o2);
-
-A implementação deve usar a função tamanho da questão 3.
-
-Obviamente, não use a função strcat.
+ * nota: a diferença desse script para o [arquivo da questão original (2.c)](./2.c)
+ * é que white-spaces não são ignorados pela função scanf()
 */
 #include <stdio.h>
 #define STR_LEN 100
 #define STR_LEN_D (STR_LEN*2)
 
+
+int ler_linha(char *str, int n_max);
 int tamanho(char *str);
 void concatena (char *o1, char *o2, char *d);
 
@@ -24,15 +18,25 @@ int main(void)
 	char str_destino[STR_LEN_D+1];
 
 	printf("Insira a primeira string: ");
-	scanf("%s", str1);
+	ler_linha(str1, STR_LEN);
 	printf("Insira a segunda string: ");
-	scanf("%s", str2);
-
-	printf("\n");
-
+	ler_linha(str2, STR_LEN);
 	concatena(str1, str2, str_destino);
 
 	return 0;
+}
+
+int ler_linha(char *str, int n_max)
+{
+	int ch, i = 0;
+
+	while ((ch = getchar()) != '\n')
+		if (i < n_max)
+			str[i++] = (char) ch;
+
+	str[i] = '\0';
+
+	return i;
 }
 
 int tamanho(char *str)
