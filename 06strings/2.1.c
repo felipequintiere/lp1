@@ -4,8 +4,6 @@
 */
 #include <stdio.h>
 #define STR_LEN 100
-#define STR_LEN_D (STR_LEN*2)
-
 
 int ler_linha(char *str, int n_max);
 int tamanho(char *str);
@@ -13,14 +11,14 @@ void concatena (char *o1, char *o2, char *d);
 
 int main(void)
 {
-	char str1[STR_LEN+1];
-	char str2[STR_LEN+1];
-	char str_destino[STR_LEN_D+1];
+	char str1[STR_LEN+1], str2[STR_LEN+1];
 
 	printf("Insira a primeira string: ");
 	ler_linha(str1, STR_LEN);
 	printf("Insira a segunda string: ");
 	ler_linha(str2, STR_LEN);
+
+	char str_destino[tamanho(str1)+tamanho(str2)+1];
 	concatena(str1, str2, str_destino);
 
 	return 0;
@@ -58,19 +56,16 @@ void concatena (char *o1, char *o2, char *d)
 
 	for (int i = 0; i < tamanho(o1); i++)
 	{
-		*(d + pos) = *(o1 + i);
-		//d[pos] = o1[i];
+		*(d + pos) = *(o1 + i);	//d[pos] = o1[i];
 		pos++;
 	}
 
 	for (int i = 0; i < tamanho(o2); i++)
 	{
-		*(d + pos) = *(o2 + i);
-		//d[pos] = o2[i];
+		*(d + pos) = *(o2 + i);	//d[pos] = o2[i];
 		pos++;
 	}
 
-	printf("%s", d);
-	printf("\n");
+	printf("%s\n", d);
 }
 
