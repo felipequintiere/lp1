@@ -22,17 +22,12 @@ int main()
 		int valor = compras[i];
 
 		if (conta1 >= conta2)
-		{
 			compra(&conta1, &valor);
-			printf("\nSaldo da primeira conta: R$%d\n", conta1);
-			printf("Saldo da segunda conta: R$%d\n", conta2);
-		}
 		else
-		{
 			compra(&conta2, &valor);
-			printf("\nSaldo da primeira conta: R$%d\n", conta1);
-			printf("Saldo da segunda conta: R$%d\n", conta2);
-		}
+
+		printf("\nSaldo da primeira conta: R$%d\n", conta1);
+		printf("Saldo da segunda conta: R$%d\n", conta2);
 	}
 
 	printf("\nSaldo final da primeira conta: R$%d\n", conta1);
