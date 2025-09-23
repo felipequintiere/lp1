@@ -3,7 +3,7 @@
  * é que white-spaces não são ignorados pela função scanf()
 */
 #include <stdio.h>
-#define STR_LEN 100
+#define STR_LEN 1000
 
 int ler_linha(char *str, int n_max);
 int tamanho(char *str);
