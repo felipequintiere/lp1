@@ -7,7 +7,7 @@
 	Obviamente, não use a função strlen.
 */
 #include <stdio.h>
-#define STR_LEN 50
+#define STR_LEN 100
 
 int tamanho(char *str);
 
@@ -15,21 +15,18 @@ int main(void)
 {
 	char str[STR_LEN+1];
 
+	printf("Insira uma string: ");
 	scanf("%s", str);
-
-	printf("%s tem %d caracteres\n", str, tamanho(str));
+	printf("\n\'%s\' tem %d caracteres\n", str, tamanho(str));
 
 	return 0;
 }
 
 int tamanho(char *str)
 {
-	int count = 0;	
-	while (*str != '\0')
-	{
-		count++;	
-		str++;
-	}
+	int i = 0;
+	while (str[i] != '\0')
+		i++;
 
-	return count;
+	return i;
 }

@@ -4,7 +4,7 @@
         Recebe duas strings de origem
         Junta em destino as duas strings de origem (sobrescrevendo o conteúdo de destino, se houver)
 
-void concatena (char* d, char* o1, char* o2);
+void concatena (char *o1, char *o2, char *d);
 
 A implementação deve usar a função tamanho da questão 3.
 
@@ -12,6 +12,7 @@ Obviamente, não use a função strcat.
 */
 #include <stdio.h>
 #define STR_LEN 100
+#define STR_LEN_D (2*STR_LEN)
 
 int tamanho(char *str);
 void concatena (char *o1, char *o2, char *d);
@@ -19,47 +20,39 @@ void concatena (char *o1, char *o2, char *d);
 int main(void)
 {
 	char str1[STR_LEN+1], str2[STR_LEN+1];
+	char str_destino[STR_LEN_D+1];
 
 	printf("Insira a primeira string: ");
 	scanf("%s", str1);
 	printf("Insira a segunda string: ");
 	scanf("%s", str2);
+	printf("\n\'%s\' tem %d caracteres\n"
+	"\'%s\' tem %d caracteres\n", str1, tamanho(str1), str2, tamanho(str2));
 
-	char str_destino[tamanho(str1)+tamanho(str2)+1];
 	concatena(str1, str2, str_destino);
+	printf("%s\n",str_destino);
 
 	return 0;
 }
 
 int tamanho(char *str)
 {
-	int count = 0;	
+	int i = 0;
+	while (str[i] != '\0')
+		i++;
 
-	while (*str != '\0')
-	{
-		count++;	
-		str++;
-	}
-
-	return count;
+	return i;
 }
 
 void concatena (char *o1, char *o2, char *d)
 {
-	int pos = 0;
+	// obs.: todas as 'characters constants' são representadas
+	// internamente por inteiros e, '\0' é representado por 0
+	while (*o1) 
+		*d++ = *o1++;
+	while (*o2) 
+		*d++ = *o2++;
 
-	for (int i = 0; i < tamanho(o1); i++)
-	{
-		*(d + pos) = *(o1 + i);	//d[pos] = o1[i];
-		pos++;
-	}
-
-	for (int i = 0; i < tamanho(o2); i++)
-	{
-		d[pos] = o2[i];	//*(d + pos) = *(o2 + i);
-		pos++;
-	}
-
-	printf("%s\n", d);
+	*d = '\0';
 }
 
