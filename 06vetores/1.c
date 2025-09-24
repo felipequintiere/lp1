@@ -31,6 +31,7 @@ int main(void)
 
 void preenche(int *xs, int n)
 {
+	printf("Preencha %d inteiros: ", n);
 	for (int *p = xs; p < xs + n; p++)
 		//scanf("%d", &*p);
 		// equivalente a:
