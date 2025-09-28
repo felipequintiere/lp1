@@ -61,6 +61,3 @@ void mostrar_personagem(struct personagem *p)
 	}
 }
 
-
-
-// (int *) vs quando vs for bidimensional

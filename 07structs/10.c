@@ -21,7 +21,7 @@
 #include <stdio.h>
 #define L 10 // número de linhas
 #define C 10 // número de colunas
-#define N 2 // número de personagems
+#define N 10 // número de personagems
 
 struct posicao{
 	int x;
@@ -34,47 +34,48 @@ struct personagem{
 	struct posicao pos;
 };
 
-void preenche_personagem(struct personagem *p);
-void mostrar_personagem(struct personagem *p);
+void preenche_personagem(struct personagem *p, int n);
+void mostrar_personagem(struct personagem *p, int n);
 void desenhar_mapa(struct personagem *p, int n);
 
 int main(void)
 {
 	struct personagem vet_personagem[N];
-	preenche_personagem(vet_personagem);
-	mostrar_personagem(vet_personagem);
+
+	preenche_personagem(vet_personagem, N);
+	mostrar_personagem(vet_personagem, N);
 	desenhar_mapa(vet_personagem, N);
 
 	return 0;
 }
 
-void preenche_personagem(struct personagem *p)
+void preenche_personagem(struct personagem *p, int n)
 {
-	for (int i = 0; i < N; i++)
+	for (int i = 0; i < n; i++)
 	{
-		printf("\n\nInsira a identidade: ");
+		printf("\nInsira a identidade: ");
 		scanf("%d", &(p+i)->ident); 
+
 		//printf("Insira a pontuação: ");
 		//scanf("%d", &(p+i)->pont); 
-		printf("Insira a abscissa e ordenada [x y]: ");
+		
+		printf("Insira a posição [x y]: ");
 		scanf("%d%d", &(p+i)->pos.x, &(p+i)->pos.y); 
 	}
 }
 
-void mostrar_personagem(struct personagem *p)
+void mostrar_personagem(struct personagem *p, int n)
 {
-	for (int i = 0; i < N; i++)
+	for (int i = 0; i < n; i++)
 	{
 		printf("\n\nIdentidade do personagem %d: %d\n",
-		i+1,(p+i)->ident); //ou 'i+1,(*(p+i)).ident);'
-		/*
-		printf("pontuação do personagem %d: %d\n",
-		i+1,(p+i)->pont); //ou 'i+1,(*(p+i)).pont);'
-		*/
-		printf("posição x do personagem %d: %d\n",
-		i+1,(p+i)->pos.x); //ou 'i+1,(*(p+i)).pos.x);'
-		printf("posição y  do personagem %d: %d\n",
-		i+1,(p+i)->pos.y); //ou 'i+1,(*(p+i)).pos.y);'
+		i+1, (p+i)->ident);        //ou 'i+1, (*(p+i)).ident);'
+		
+		//printf("Pontuação do personagem %d: %d\n",
+		//i+1, (p+i)->pont);
+
+		printf("Posição [x y] do personagem %d: %d %d\n",
+		i+1, (p+i)->pos.x, (p+i)->pos.y);
 	}
 }
 
@@ -82,27 +83,31 @@ void desenhar_mapa(struct personagem *p, int n)
 {
 	int x, y;
 
-	int map[L][C] = {0};
+	int map[L][C];
+
+	for (int i = 0; i < L; i++) 
+		for (int j = 0; j < C; j++)
+			map[i][j] = -1;
 
 	for (int i = 0; i < n; i++)
 	{
-		x = (*(p+i)).pos.x; // ou (p+1)->pos.x
-		y = (*(p+i)).pos.y; // ou (p+1)->pos.y
-		map[x][y] = (*(p+i)).ident;
+		x = (p+i)->pos.x;        // ou (*(p+i)).pos.x
+		y = (p+i)->pos.y;
+		map[x][y] = (p+i)->ident;        // ou (*(p+i)).ident
 	}
 
-	printf("obs.: [x y] representam as linhas e colunas, respectivamente\n"
-	"0 1 2 3 4 5 6 7 8 9\n");
+	printf("\n  0 1 2 3 4 5 6 7 8 9\n");
 	for (int i = 0; i < L; i++)
 	{
 		printf("%d ",i);
 		for (int j = 0; j < C; j++)
 		{
-			if (map[i][j] == 0)
-				printf(". ");
+			if (map[i][j] == -1)
+				printf("  ");
 			else
 				printf("%d ", map[i][j]);	
 		}
 		printf("\n");
 	}
+	printf("\nobs.: [x y] representam, respectivamente, as linhas e as colunas\n");
 }
